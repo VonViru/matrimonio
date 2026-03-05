@@ -81,7 +81,7 @@
   .eyebrow {
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 0.65rem;
+    font-size: 1rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: var(--stone);
@@ -146,7 +146,7 @@
   }
 
   .section-label {
-    font-size: 0.6rem;
+    font-size: 0.85rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--accent);
@@ -165,23 +165,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.2rem;
   }
 
   .count-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(4rem, 12vw, 8rem);
     font-weight: 300;
     line-height: 1;
     color: var(--warm-white);
   }
 
   .count-label {
-    font-size: 0.55rem;
+    font-size: 0.75rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: var(--light-stone);
-    opacity: 0.6;
+    opacity: 0.8;
   }
 
   .count-sep {
@@ -202,14 +202,14 @@
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 300;
     margin-bottom: 1rem;
     color: var(--dark);
   }
 
   .section-desc {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--stone);
     letter-spacing: 0.05em;
     max-width: 380px;
@@ -219,10 +219,10 @@
 
   .btn {
     display: inline-block;
-    padding: 0.9rem 2.8rem;
+    padding: 1.1rem 3.2rem;
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     text-decoration: none;
@@ -255,133 +255,6 @@
   }
   .btn-accent::before { background: var(--accent); }
   .btn-accent:hover { color: var(--warm-white); }
-
-  /* ── NEWSLETTER ── */
-  .newsletter-section {
-    padding: 5rem 2rem;
-    background: var(--warm-white);
-    text-align: center;
-    border-top: 1px solid var(--light-stone);
-  }
-
-  .newsletter-form {
-    display: flex;
-    max-width: 420px;
-    margin: 2.5rem auto 0;
-    gap: 0;
-    border: 1px solid var(--light-stone);
-    background: white;
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 0.9rem 1.2rem;
-    font-family: 'Jost', sans-serif;
-    font-weight: 200;
-    font-size: 0.85rem;
-    color: var(--dark);
-    background: transparent;
-    letter-spacing: 0.05em;
-  }
-
-  .newsletter-form input::placeholder { color: var(--light-stone); }
-
-  .newsletter-form button {
-    border: none;
-    border-left: 1px solid var(--light-stone);
-    background: var(--dark);
-    color: var(--cream);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    padding: 0 1.5rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    white-space: nowrap;
-  }
-
-  .newsletter-form button:hover { background: var(--accent); }
-
-  .email-list-wrap {
-    max-width: 420px;
-    margin: 2rem auto 0;
-    text-align: left;
-    display: none;
-  }
-
-  .email-list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .email-list-title {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--stone);
-  }
-
-  .copy-btn {
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    padding: 0;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .email-list {
-    list-style: none;
-    border: 1px solid var(--light-stone);
-    background: white;
-    max-height: 180px;
-    overflow-y: auto;
-  }
-
-  .email-list li {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-    color: var(--stone);
-    border-bottom: 1px solid var(--cream);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .email-list li:last-child { border-bottom: none; }
-
-  .remove-email {
-    background: none;
-    border: none;
-    color: var(--light-stone);
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: 1;
-    transition: color 0.2s;
-    padding: 0 0 0 0.5rem;
-  }
-  .remove-email:hover { color: #c0392b; }
-
-  .success-msg {
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    margin-top: 0.75rem;
-    min-height: 1.2em;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-  }
 
   /* ── FOOTER ── */
   footer {
@@ -471,29 +344,6 @@
   <a href="https://forms.google.com/TU_FORM_AQUI" target="_blank" class="btn">Confirmar asistencia</a>
 </section>
 
-<!-- NEWSLETTER -->
-<section class="newsletter-section fade-in">
-  <p class="section-label">Novedades</p>
-  <h2 class="section-title">Seguí el camino</h2>
-  <p class="section-desc" style="max-width:400px;margin:0 auto;">
-    Dejá tu email y te avisamos con info sobre el evento:<br>dress code, itinerario y más.
-  </p>
-
-  <div class="newsletter-form">
-    <input type="email" id="email-input" placeholder="tu@email.com" />
-    <button onclick="subscribeEmail()">Suscribirse</button>
-  </div>
-  <p class="success-msg" id="success-msg"></p>
-
-  <div class="email-list-wrap" id="email-list-wrap">
-    <div class="email-list-header">
-      <span class="email-list-title" id="email-count">0 suscriptores</span>
-      <button class="copy-btn" onclick="copyEmails()">Copiar todos</button>
-    </div>
-    <ul class="email-list" id="email-list"></ul>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   Carolina & Diego &nbsp;·&nbsp; 05.10.2026 &nbsp;·&nbsp; Castel Gandolfo
@@ -525,67 +375,6 @@
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
-
-  // ── NEWSLETTER ──
-  let emails = [];
-
-  function subscribeEmail() {
-    const input = document.getElementById('email-input');
-    const msg   = document.getElementById('success-msg');
-    const email = input.value.trim().toLowerCase();
-
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      msg.style.color = '#c0392b';
-      msg.textContent = 'Email inválido.';
-      return;
-    }
-    if (emails.includes(email)) {
-      msg.style.color = 'var(--stone)';
-      msg.textContent = 'Ya estás en la lista.';
-      return;
-    }
-
-    emails.push(email);
-    input.value = '';
-    msg.style.color = 'var(--accent)';
-    msg.textContent = '¡Gracias! Te avisamos con novedades.';
-    setTimeout(() => msg.textContent = '', 4000);
-
-    renderEmailList();
-  }
-
-  document.getElementById('email-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') subscribeEmail();
-  });
-
-  function renderEmailList() {
-    const wrap = document.getElementById('email-list-wrap');
-    const list = document.getElementById('email-list');
-    const count = document.getElementById('email-count');
-
-    wrap.style.display = emails.length ? 'block' : 'none';
-    count.textContent = `${emails.length} suscriptor${emails.length !== 1 ? 'es' : ''}`;
-
-    list.innerHTML = emails.map((e, i) => `
-      <li>
-        <span>${e}</span>
-        <button class="remove-email" onclick="removeEmail(${i})" title="Eliminar">×</button>
-      </li>
-    `).join('');
-  }
-
-  function removeEmail(i) {
-    emails.splice(i, 1);
-    renderEmailList();
-  }
-
-  function copyEmails() {
-    navigator.clipboard.writeText(emails.join('\n')).then(() => {
-      const btn = document.querySelector('.copy-btn');
-      btn.textContent = '¡Copiado!';
-      setTimeout(() => btn.textContent = 'Copiar todos', 2000);
-    });
-  }
 
   // ── SCROLL ANIMATIONS ──
   const observer = new IntersectionObserver(entries => {
