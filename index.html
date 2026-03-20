@@ -14,6 +14,626 @@
     --warm-white: #fdfaf6;
     --stone: #8c8070;
     --dark: #1e1a16;
+    --names: #7a6a5a;
+    --accent: #b8956a;
+    --light-stone: #d4c9bc;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--light-stone);
+    background: rgba(253,250,246,0.9);
+    backdrop-filter: blur(8px);
+  }
+
+  .lang-btn {
+    padding: 0.35rem 0.75rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    background: transparent;
+    color: var(--stone);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: var(--dark);
+    color: var(--cream);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 3rem 2rem;
+    background: var(--warm-white);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 20%, rgba(184,149,106,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 80%, rgba(184,149,106,0.06) 0%, transparent 60%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 2rem;
+    border: 1px solid rgba(184,149,106,0.25);
+    pointer-events: none;
+  }
+
+  .corner {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  .corner-tl { top: 1.4rem; left: 1.4rem; border-width: 1px 0 0 1px; }
+  .corner-tr { top: 1.4rem; right: 1.4rem; border-width: 1px 1px 0 0; }
+  .corner-bl { bottom: 1.4rem; left: 1.4rem; border-width: 0 0 1px 1px; }
+  .corner-br { bottom: 1.4rem; right: 1.4rem; border-width: 0 1px 1px 0; }
+
+  .hero-inner {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 2.5rem;
+  }
+
+  .names {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    line-height: 1;
+    color: var(--names);
+    letter-spacing: -0.01em;
+  }
+
+  .names .amp {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.85em;
+    display: inline-block;
+    margin: 0 0.15em;
+  }
+
+  .divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+    margin: 2.5rem auto;
+  }
+
+  .date-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--stone);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .location-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .location-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .location-line {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .location-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--stone);
+    opacity: 0.8;
+  }
+
+  .location-divider {
+    width: 30px;
+    height: 1px;
+    background: var(--light-stone);
+    margin: 0.2rem auto;
+  }
+
+  /* ── COUNTDOWN ── */
+  .countdown-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: var(--dark);
+    color: var(--cream);
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3rem;
+    opacity: 0.8;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    flex-wrap: wrap;
+  }
+
+  .count-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .count-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--warm-white);
+  }
+
+  .count-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--light-stone);
+    opacity: 0.8;
+  }
+
+  .count-sep {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.3;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  /* ── RSVP ── */
+  .rsvp-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: var(--cream);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+    max-width: 380px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1.1rem 3.2rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--dark);
+    color: var(--dark);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--dark);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+
+  .btn:hover { color: var(--cream); }
+  .btn:hover::before { transform: scaleX(1); }
+
+  /* ── CAROUSEL ── */
+  .carousel-section {
+    padding: 5rem 0;
+    background: var(--warm-white);
+    overflow: hidden;
+    border-top: 1px solid var(--light-stone);
+  }
+
+  .carousel-section .section-label {
+    text-align: center;
+    display: block;
+    margin-bottom: 3rem;
+    color: var(--stone);
+  }
+
+  .carousel-track-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 calc(50vw - 140px);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  .carousel-slide {
+    flex: 0 0 280px;
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.5;
+    transform: scale(0.92);
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .carousel-btn {
+    background: none;
+    border: 1px solid var(--light-stone);
+    color: var(--stone);
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .carousel-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--light-stone);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: var(--accent);
+    width: 20px;
+    border-radius: 3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--light-stone);
+    background: var(--dark);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- LANG TOGGLE -->
+<div class="lang-toggle">
+  <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="hero-inner">
+    <p class="eyebrow" data-es="Save the Date" data-en="Save the Date">Save the Date</p>
+
+    <h1 class="names">
+      Caro<br>
+      <span class="amp">&</span><br>
+      Diego
+    </h1>
+
+    <div class="divider"></div>
+
+    <p class="date-line" data-es="5 de Octubre, 2026" data-en="October 5th, 2026">5 de Octubre, 2026</p>
+
+    <div class="location-block">
+      <div class="location-item">
+        <span class="location-line" data-es="Ceremonia · 11:30" data-en="Ceremony · 11:30 AM">Ceremonia · 11:30</span>
+        <span class="location-sub" data-es="Iglesia Santo Tommaso, Castel Gandolfo" data-en="Santo Tommaso Church, Castel Gandolfo">Iglesia Santo Tommaso, Castel Gandolfo</span>
+      </div>
+      <div class="location-divider"></div>
+      <div class="location-item">
+        <span class="location-line" data-es="Recepción · 13:30" data-en="Reception · 1:30 PM">Recepción · 13:30</span>
+        <span class="location-sub" data-es="Villa Pocci, Castel Gandolfo, Italia" data-en="Villa Pocci, Castel Gandolfo, Italy">Villa Pocci, Castel Gandolfo, Italia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <p class="section-label" data-es="Faltan" data-en="Countdown">Faltan</p>
+  <div class="countdown">
+    <div class="count-item">
+      <span class="count-num" id="cd-days">—</span>
+      <span class="count-label" data-es="Días" data-en="Days">Días</span>
+    </div>
+    <span class="count-sep">·</span>
+    <div class="count-item">
+      <span class="count-num" id="cd-hours">—</span>
+      <span class="count-label" data-es="Horas" data-en="Hours">Horas</span>
+    </div>
+    <span class="count-sep">·</span>
+    <div class="count-item">
+      <span class="count-num" id="cd-mins">—</span>
+      <span class="count-label" data-es="Minutos" data-en="Minutes">Minutos</span>
+    </div>
+    <span class="count-sep">·</span>
+    <div class="count-item">
+      <span class="count-num" id="cd-secs">—</span>
+      <span class="count-label" data-es="Segundos" data-en="Seconds">Segundos</span>
+    </div>
+  </div>
+</section>
+
+<!-- CAROUSEL -->
+<section class="carousel-section fade-in">
+  <span class="section-label" data-es="Nosotros" data-en="Us">Nosotros</span>
+  <div class="carousel-track-wrap">
+    <div class="carousel-track" id="carousel-track">
+      <div class="carousel-slide"><img src="img/foto1.jpeg" alt="foto 1" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto2.jpeg" alt="foto 2" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto3.jpeg" alt="foto 3" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto4.jpeg" alt="foto 4" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto5.jpeg" alt="foto 5" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto6.jpeg" alt="foto 6" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto7.jpeg" alt="foto 7" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto8.jpeg" alt="foto 8" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto9.jpeg" alt="foto 9" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto10.jpeg" alt="foto 10" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto11.jpeg" alt="foto 11" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto12.jpeg" alt="foto 12" loading="lazy"></div>
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="carousel-prev">&#8592;</button>
+    <div class="carousel-dots" id="carousel-dots"></div>
+    <button class="carousel-btn" id="carousel-next">&#8594;</button>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp-section fade-in">
+  <p class="section-label" data-es="Confirmá tu asistencia" data-en="RSVP">Confirmá tu asistencia</p>
+  <h2 class="section-title" data-es="¿Nos acompañás?" data-en="Will you join us?">¿Nos acompañás?</h2>
+  <p class="section-desc" data-es="Completá el formulario para confirmar tu lugar.<br>Te esperamos en Castel Gandolfo." data-en="Fill out the form to confirm your attendance.<br>We can't wait to celebrate with you.">
+    Completá el formulario para confirmar tu lugar.<br>
+    Te esperamos en Castel Gandolfo.
+  </p>
+  <a href="https://tally.so/r/44jDJA" target="_blank" class="btn" data-es="Confirmar asistencia" data-en="Confirm attendance">Confirmar asistencia</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Carolina & Diego &nbsp;·&nbsp; 05.10.2026 &nbsp;·&nbsp; Castel Gandolfo
+</footer>
+
+<script>
+  // ── LANG ──
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const val = el.getAttribute('data-' + lang);
+      if (val) el.innerHTML = val;
+    });
+  }
+
+  // ── COUNTDOWN ──
+  const weddingDate = new Date('2026-10-05T12:00:00');
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── CAROUSEL ──
+  const track      = document.getElementById('carousel-track');
+  const slides     = Array.from(track.querySelectorAll('.carousel-slide'));
+  const dotsWrap   = document.getElementById('carousel-dots');
+  const SLIDE_W    = 280 + 24;
+  let current      = 0;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dotsWrap.children[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsWrap.children[current].classList.add('active');
+    track.style.transform = `translateX(-${current * SLIDE_W}px)`;
+  }
+
+  slides[0].classList.add('active');
+
+  document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+  });
+
+  setInterval(() => goTo(current + 1), 4000);
+
+  // ── SCROLL ANIMATIONS ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carolina & Diego — 5 de Octubre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f8f4ef;
+    --warm-white: #fdfaf6;
+    --stone: #8c8070;
+    --dark: #1e1a16;
     --accent: #b8956a;
     --light-stone: #d4c9bc;
   }
