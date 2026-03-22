@@ -414,7 +414,7 @@
     <div class="location-block">
       <div class="location-item">
         <span class="location-line" data-es="Misa de Esponsales · 11:00" data-en="Wedding Mass · 11:00 AM">Misa de Esponsales · 11:00</span>
-        <span class="location-sub" data-es="Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma" data-en="San Tommaso da Villanova Church, Castel Gandolfo, Roma">Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma</span>
+        <span class="location-sub" data-es="Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma" data-en="San Tommaso da Villanova Church, Castel Gandolfo, Rome">Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma</span>
       </div>
       <div class="location-divider"></div>
       <div class="location-item">
@@ -450,7 +450,6 @@
       <div class="carousel-slide"><img src="img/foto14.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto15.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto16.jpeg" alt="" loading="lazy"></div>
-      <div class="carousel-slide"><img src="img/foto17.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto18.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto19.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto20.jpeg" alt="" loading="lazy"></div>
@@ -508,11 +507,9 @@
     const diff = weddingDate - new Date();
     if (diff <= 0) {
       document.getElementById('cd-days').textContent = '0';
-      document.getElementById('cd-hours').textContent = '00';
       return;
     }
-    document.getElementById('cd-days').textContent  = Math.floor(diff / (1000 * 60 * 60 * 24));
-    document.getElementById('cd-hours').textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2,'0');
+    document.getElementById('cd-days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
   }
   updateCountdown();
   setInterval(updateCountdown, 60000);
