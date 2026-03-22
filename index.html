@@ -31,14 +31,12 @@
     overflow-x: hidden;
   }
 
-  /* ── LANG TOGGLE ── */
   .lang-toggle {
     position: fixed;
     top: 1.2rem;
     right: 1.5rem;
     z-index: 100;
     display: flex;
-    gap: 0;
     border: 1px solid var(--light-stone);
     background: rgba(253,250,246,0.9);
     backdrop-filter: blur(8px);
@@ -58,12 +56,8 @@
     transition: all 0.2s;
   }
 
-  .lang-btn.active {
-    background: var(--dark);
-    color: var(--cream);
-  }
+  .lang-btn.active { background: var(--dark); color: var(--cream); }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -154,17 +148,8 @@
     margin-bottom: 1rem;
   }
 
-  .location-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .location-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
+  .location-block { display: flex; flex-direction: column; gap: 0.6rem; }
+  .location-item  { display: flex; flex-direction: column; gap: 0.15rem; }
 
   .location-line {
     font-size: 0.7rem;
@@ -188,7 +173,6 @@
     margin: 0.2rem auto;
   }
 
-  /* ── COUNTDOWN ── */
   .countdown-section {
     padding: 5rem 2rem;
     text-align: center;
@@ -208,6 +192,7 @@
   .countdown {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: clamp(1.5rem, 5vw, 4rem);
     flex-wrap: wrap;
   }
@@ -240,11 +225,9 @@
     font-size: 3rem;
     color: var(--accent);
     opacity: 0.3;
-    align-self: flex-start;
     margin-top: 0.5rem;
   }
 
-  /* ── RSVP ── */
   .rsvp-section {
     padding: 5rem 2rem;
     text-align: center;
@@ -300,7 +283,6 @@
   .btn:hover { color: var(--cream); }
   .btn:hover::before { transform: scaleX(1); }
 
-  /* ── CAROUSEL ── */
   .carousel-section {
     padding: 5rem 0;
     background: var(--warm-white);
@@ -315,11 +297,7 @@
     color: var(--stone);
   }
 
-  .carousel-track-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
+  .carousel-track-wrap { position: relative; width: 100%; overflow: hidden; }
 
   .carousel-track {
     display: flex;
@@ -333,16 +311,12 @@
     flex: 0 0 280px;
     height: 420px;
     overflow: hidden;
-    position: relative;
     transition: transform 0.4s ease, opacity 0.4s ease;
     opacity: 0.5;
     transform: scale(0.92);
   }
 
-  .carousel-slide.active {
-    opacity: 1;
-    transform: scale(1);
-  }
+  .carousel-slide.active { opacity: 1; transform: scale(1); }
 
   .carousel-slide img {
     width: 100%;
@@ -373,16 +347,9 @@
     transition: all 0.3s ease;
   }
 
-  .carousel-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .carousel-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-  .carousel-dots {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
+  .carousel-dots { display: flex; gap: 0.5rem; align-items: center; }
 
   .carousel-dot {
     width: 5px;
@@ -393,13 +360,8 @@
     transition: all 0.3s ease;
   }
 
-  .carousel-dot.active {
-    background: var(--accent);
-    width: 20px;
-    border-radius: 3px;
-  }
+  .carousel-dot.active { background: var(--accent); width: 20px; border-radius: 3px; }
 
-  /* ── FOOTER ── */
   footer {
     padding: 2rem;
     text-align: center;
@@ -410,7 +372,6 @@
     background: var(--dark);
   }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -426,13 +387,11 @@
 </head>
 <body>
 
-<!-- LANG TOGGLE -->
 <div class="lang-toggle">
   <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
   <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="corner corner-tl"></div>
   <div class="corner corner-tr"></div>
@@ -455,18 +414,17 @@
     <div class="location-block">
       <div class="location-item">
         <span class="location-line" data-es="Misa de Esponsales · 11:00" data-en="Wedding Mass · 11:00 AM">Misa de Esponsales · 11:00</span>
-        <span class="location-sub" data-es="Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma" data-en="San Tommaso da Villanova Church, Castel Gandolfo, Roma">Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma</span>
+        <span class="location-sub" data-es="Iglesia San Tommaso da Villanova, Castel Gandolfo" data-en="San Tommaso da Villanova Church, Castel Gandolfo">Iglesia San Tommaso da Villanova, Castel Gandolfo</span>
       </div>
       <div class="location-divider"></div>
       <div class="location-item">
         <span class="location-line" data-es="Recepción · 13:30" data-en="Reception · 1:30 PM">Recepción · 13:30</span>
-        <span class="location-sub" data-es="Villa Pocci, Castel Gandolfo, Roma" data-en="Villa Pocci, Castel Gandolfo, Roma">Villa Pocci, Castel Gandolfo, Roma</span>
+        <span class="location-sub" data-es="Villa Pocci, Castel Gandolfo, Roma" data-en="Villa Pocci, Castel Gandolfo, Rome">Villa Pocci, Castel Gandolfo, Roma</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COUNTDOWN -->
 <section class="countdown-section">
   <p class="section-label" data-es="Faltan" data-en="Countdown">Faltan</p>
   <div class="countdown">
@@ -475,10 +433,13 @@
       <span class="count-label" data-es="Días" data-en="Days">Días</span>
     </div>
     <span class="count-sep">·</span>
+    <div class="count-item">
+      <span class="count-num" id="cd-hours">—</span>
+      <span class="count-label" data-es="Horas" data-en="Hours">Horas</span>
+    </div>
   </div>
 </section>
 
-<!-- CAROUSEL -->
 <section class="carousel-section fade-in">
   <span class="section-label" data-es="Nosotros" data-en="Us">Nosotros</span>
   <div class="carousel-track-wrap">
@@ -494,6 +455,7 @@
       <div class="carousel-slide"><img src="img/foto14.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto15.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto16.jpeg" alt="" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto17.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto18.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto19.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto20.jpeg" alt="" loading="lazy"></div>
@@ -516,7 +478,6 @@
   </div>
 </section>
 
-<!-- RSVP -->
 <section class="rsvp-section fade-in">
   <p class="section-label" data-es="Confirmá tu asistencia" data-en="RSVP">Confirmá tu asistencia</p>
   <h2 class="section-title" data-es="¿Nos acompañás?" data-en="Will you join us?">¿Nos acompañás?</h2>
@@ -527,59 +488,45 @@
   <a id="rsvp-btn" href="#tally-open=44jDJA" class="btn" data-es="Confirmar asistencia" data-en="Confirm attendance">Confirmar asistencia</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  Carolina & Diego &nbsp;·&nbsp; 05.10.2026 &nbsp;·&nbsp; Castel Gandolfo
+  Caro & Diego &nbsp;·&nbsp; 05.10.2026 &nbsp;·&nbsp; Castel Gandolfo
 </footer>
 
 <script>
-  // ── LANG ──
   let currentLang = 'es';
 
   function setLang(lang) {
     currentLang = lang;
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
     document.querySelectorAll('[data-es]').forEach(el => {
       const val = el.getAttribute('data-' + lang);
       if (val) el.innerHTML = val;
     });
-
     const formId = lang === 'es' ? '44jDJA' : '0QPXlZ';
-    document.getElementById('rsvp-btn').href = `#tally-open=${formId}`;
+    document.getElementById('rsvp-btn').href = '#tally-open=' + formId;
   }
 
-  // ── COUNTDOWN ──
-  const weddingDate = new Date('2026-10-05T12:00:00');
+  const weddingDate = new Date('2026-10-05T11:00:00');
 
   function updateCountdown() {
-    const now = new Date();
-    const diff = weddingDate - now;
+    const diff = weddingDate - new Date();
     if (diff <= 0) {
       document.getElementById('cd-days').textContent = '0';
       document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-mins').textContent = '00';
-      document.getElementById('cd-secs').textContent = '00';
       return;
     }
-    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById('cd-days').textContent  = days;
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-days').textContent  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2,'0');
   }
   updateCountdown();
-  setInterval(updateCountdown, 1000);
+  setInterval(updateCountdown, 60000);
 
-  // ── CAROUSEL ──
-  const track      = document.getElementById('carousel-track');
-  const slides     = Array.from(track.querySelectorAll('.carousel-slide'));
-  const dotsWrap   = document.getElementById('carousel-dots');
-  const SLIDE_W    = 280 + 24;
-  let current      = 0;
+  const track    = document.getElementById('carousel-track');
+  const slides   = Array.from(track.querySelectorAll('.carousel-slide'));
+  const dotsWrap = document.getElementById('carousel-dots');
+  const SLIDE_W  = 280 + 24;
+  let current    = 0;
 
   slides.forEach((_, i) => {
     const d = document.createElement('div');
@@ -594,28 +541,25 @@
     current = (idx + slides.length) % slides.length;
     slides[current].classList.add('active');
     dotsWrap.children[current].classList.add('active');
-    track.style.transform = `translateX(-${current * SLIDE_W}px)`;
+    track.style.transform = 'translateX(-' + (current * SLIDE_W) + 'px)';
   }
 
   slides[0].classList.add('active');
-
   document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
   document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
 
   let touchStartX = 0;
   track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
+  track.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
   });
 
   setInterval(() => goTo(current + 1), 4000);
 
-  // ── SCROLL ANIMATIONS ──
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
-
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
