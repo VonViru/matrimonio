@@ -6,6 +6,7 @@
 <title>Carolina & Diego — 5 de Octubre 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<script async src="https://tally.so/widgets/embed.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -474,20 +475,6 @@
       <span class="count-label" data-es="Días" data-en="Days">Días</span>
     </div>
     <span class="count-sep">·</span>
-    <div class="count-item">
-      <span class="count-num" id="cd-hours">—</span>
-      <span class="count-label" data-es="Horas" data-en="Hours">Horas</span>
-    </div>
-    <span class="count-sep">·</span>
-    <div class="count-item">
-      <span class="count-num" id="cd-mins">—</span>
-      <span class="count-label" data-es="Minutos" data-en="Minutes">Minutos</span>
-    </div>
-    <span class="count-sep">·</span>
-    <div class="count-item">
-      <span class="count-num" id="cd-secs">—</span>
-      <span class="count-label" data-es="Segundos" data-en="Seconds">Segundos</span>
-    </div>
   </div>
 </section>
 
@@ -517,6 +504,7 @@
       <div class="carousel-slide"><img src="img/foto25.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto26.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto27.jpeg" alt="" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto28.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto29.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto30.jpeg" alt="" loading="lazy"></div>
     </div>
@@ -536,7 +524,7 @@
     Completá el formulario para confirmar tu lugar.<br>
     Te esperamos en Castel Gandolfo.
   </p>
-  <a href="https://tally.so/r/44jDJA" target="_blank" class="btn" data-es="Confirmar asistencia" data-en="Confirm attendance">Confirmar asistencia</a>
+  <a id="rsvp-btn" href="#tally-open=44jDJA" class="btn" data-es="Confirmar asistencia" data-en="Confirm attendance">Confirmar asistencia</a>
 </section>
 
 <!-- FOOTER -->
@@ -557,6 +545,9 @@
       const val = el.getAttribute('data-' + lang);
       if (val) el.innerHTML = val;
     });
+
+    const formId = lang === 'es' ? '44jDJA' : '0QPXlZ';
+    document.getElementById('rsvp-btn').href = `#tally-open=${formId}`;
   }
 
   // ── COUNTDOWN ──
@@ -579,8 +570,6 @@
 
     document.getElementById('cd-days').textContent  = days;
     document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
