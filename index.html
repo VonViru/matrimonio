@@ -413,7 +413,14 @@
   .map-wrap {
     max-width: 860px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     border: 1px solid var(--light-stone);
+  }
+
+  @media (max-width: 600px) {
+    .map-wrap { grid-template-columns: 1fr; }
   }
 
   footer {
@@ -552,11 +559,8 @@
     </div>
   </div>
   <div class="map-wrap">
-    <iframe
-      src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&origin=41.7464267,12.6506727&destination=41.7627283,12.6714990&mode=driving&language=es"
-      width="100%" height="480" style="border:0;" allowfullscreen loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2976.799067536598!2d12.650673999999999!3d41.7464267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132585bbf347ca01%3A0xadfddd9bcea751e!2sChurch%20of%20St%20Thomas%20of%20Villanova!5e0!3m2!1sen!2sit!4v1774261754616!5m2!1sen!2sit" width="100%" height="420" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5952.0862252897205!2d12.66892407661826!3d41.7627282712547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132585d94763fe45%3A0x8f38feaa293a25b1!2sVilla%20Pocci!5e0!3m2!1sen!2sit!4v1774261769048!5m2!1sen!2sit" width="100%" height="420" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 
