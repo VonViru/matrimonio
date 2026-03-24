@@ -576,6 +576,21 @@
 <script>
   let currentLang = 'es';
 
+  // detect ?lang= param on load
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang && ['es','en','fr'].includes(urlLang)) {
+    currentLang = urlLang;
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const val = el.getAttribute('data-' + urlLang);
+      if (val) el.innerHTML = val;
+    });
+    document.getElementById('btn-es').classList.toggle('active', urlLang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', urlLang === 'en');
+    document.getElementById('btn-fr').classList.toggle('active', urlLang === 'fr');
+    const formId = urlLang === 'es' ? '44jDJA' : '0QPXlZ';
+    document.getElementById('rsvp-btn').href = '#tally-open=' + formId;
+  }
+
   function setLang(lang) {
     currentLang = lang;
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
