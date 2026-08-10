@@ -38,15 +38,46 @@
     overflow-x: hidden;
   }
 
-  .lang-toggle {
+  .top-bar {
     position: fixed;
-    top: 1.2rem;
-    right: 1.5rem;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     display: flex;
-    border: 1px solid var(--light-stone);
-    background: rgba(253,250,246,0.9);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: rgba(253,250,246,0.92);
     backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-stone);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--accent); }
+
+  .lang-toggle {
+    display: flex;
+    border: 1px solid var(--light-stone);
+    flex-shrink: 0;
+    margin-left: 1rem;
   }
 
   .lang-btn {
@@ -70,7 +101,7 @@
     display: grid;
     place-items: center;
     position: relative;
-    padding: 3rem 2rem;
+    padding: 6rem 2rem 3rem;
     background: var(--warm-white);
   }
 
@@ -591,10 +622,19 @@
 </head>
 <body>
 
-<div class="lang-toggle">
-  <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
-  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+<div class="top-bar">
+  <nav class="nav-links">
+    <a href="#nav-us" class="nav-link" data-es="Nosotros" data-en="Us" data-fr="Nous">Nosotros</a>
+    <a href="#nav-rsvp" class="nav-link" data-es="RSVP" data-en="RSVP" data-fr="RSVP">RSVP</a>
+    <a href="#nav-honeymoon" class="nav-link" data-es="Luna de Miel" data-en="Honeymoon" data-fr="Voyage">Luna de Miel</a>
+    <a href="#nav-prewedding" class="nav-link" data-es="Pre-Wedding" data-en="Pre-Wedding" data-fr="Avant-mariage">Pre-Wedding</a>
+    <a href="#nav-map" class="nav-link" data-es="Cómo llegar" data-en="Getting there" data-fr="Comment y aller">Cómo llegar</a>
+  </nav>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
+  </div>
 </div>
 
 <section class="hero">
@@ -640,7 +680,7 @@
   </div>
 </section>
 
-<section class="carousel-section fade-in">
+<section id="nav-us" class="carousel-section fade-in">
   <span class="section-label" data-es="Nosotros" data-en="Us" data-fr="Nous">Nosotros</span>
   <div class="carousel-track-wrap">
     <div class="carousel-track" id="carousel-track">
@@ -666,8 +706,6 @@
       <div class="carousel-slide"><img src="img/foto26.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto27.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto28.jpeg" alt="" loading="lazy"></div>
-      <div class="carousel-slide"><img src="img/foto29.jpeg" alt="" loading="lazy"></div>
-      <div class="carousel-slide"><img src="img/foto30.jpeg" alt="" loading="lazy"></div>
     </div>
   </div>
   <div class="carousel-controls">
@@ -677,7 +715,7 @@
   </div>
 </section>
 
-<section class="rsvp-section fade-in">
+<section id="nav-rsvp" class="rsvp-section fade-in">
   <p class="section-label" data-es="Confirmá tu asistencia" data-en="RSVP" data-fr="Confirmer votre présence">Confirmá tu asistencia</p>
   <h2 class="section-title" data-es="¿Nos acompañás?" data-en="Will you join us?" data-fr="Vous nous rejoignez ? 🥖">¿Nos acompañás?</h2>
   <p class="section-desc" data-es="Completá el formulario para confirmar tu lugar.<br>Te esperamos en Castel Gandolfo." data-en="Fill out the form to confirm your attendance.<br>We can't wait to celebrate with you." data-fr="Remplissez le formulaire pour confirmer votre place.<br>On vous attend à Castel Gandolfo.">
@@ -705,7 +743,7 @@
 </section>
 
 <!-- HONEYMOON FUND -->
-<section class="honeymoon-section fade-in">
+<section id="nav-honeymoon" class="honeymoon-section fade-in">
   <p class="section-label" data-es="Luna de Miel" data-en="Honeymoon Fund" data-fr="Voyage de noces">Luna de Miel</p>
   <h2 class="honeymoon-title" data-es="Nos vamos a Japón ✈️" data-en="We're off to Japan ✈️" data-fr="On part au Japon ✈️">Nos vamos a Japón ✈️</h2>
   <p class="honeymoon-text" data-es="El mejor regalo es que estés en nuestro casamiento. Si además querés sumarte a esta aventura, cualquier aporte para el viaje lo vamos a atesorar tanto como el brindis." data-en="The best gift is having you at our wedding. If you'd also like to help us kick off this adventure, any contribution towards the trip means the world to us." data-fr="Le plus beau cadeau, c'est votre présence à notre mariage. Si vous souhaitez aussi participer à cette aventure, toute contribution pour le voyage nous touchera énormément.">
@@ -717,7 +755,7 @@
 </section>
 
 <!-- PREWEDDING -->
-<section class="prewedding-section fade-in">
+<section id="nav-prewedding" class="prewedding-section fade-in">
   <p class="section-label" data-es="Antes de la boda" data-en="Before the wedding" data-fr="Avant le mariage">Antes de la boda</p>
   <h2 class="section-title" data-es="Nos tomamos algo antes 🍸" data-en="Let's have a drink first 🍸" data-fr="On prend un verre avant 🍸">Nos tomamos algo antes 🍸</h2>
   <p class="prewedding-desc" data-es="El sábado a la noche antes de la boda nos juntamos para arrancar el finde con onda. Confirmá si venís." data-en="The Saturday evening before the wedding we're getting together to kick off the weekend. Let us know if you're in." data-fr="Le samedi soir avant le mariage, on se retrouve pour lancer le week-end. Confirmez votre présence.">
@@ -741,7 +779,7 @@
 </section>
 
 <!-- MAP -->
-<section class="map-section fade-in">
+<section id="nav-map" class="map-section fade-in">
   <p class="section-label" data-es="Cómo llegar" data-en="How to get there" data-fr="Comment y aller">Cómo llegar</p>
   <div class="map-locations">
     <div class="map-location-item">
