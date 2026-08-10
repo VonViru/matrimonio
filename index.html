@@ -94,6 +94,25 @@
     transition: all 0.2s;
   }
 
+  @media (max-width: 640px) {
+    .top-bar {
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0.7rem 1rem;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: flex-start;
+      gap: 1.1rem;
+    }
+    .lang-toggle {
+      margin-left: 0;
+    }
+    .hero {
+      padding-top: 8rem;
+    }
+  }
+
   .lang-btn.active { background: var(--dark); color: var(--cream); }
 
   .hero {
@@ -403,19 +422,12 @@
   .carousel-dot.active { background: var(--accent); width: 20px; border-radius: 3px; }
 
   /* ── INFO CARDS (dress code, deadline, honeymoon) ── */
-  .info-section {
-    padding: 5rem 2rem;
-    background: var(--cream);
-    text-align: center;
-    border-top: 1px solid var(--light-stone);
-  }
-
   .info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 3.5rem auto 0;
   }
 
   @media (max-width: 600px) {
@@ -624,16 +636,15 @@
 
 <div class="top-bar">
   <nav class="nav-links">
-    <a href="#nav-us" class="nav-link" data-es="Nosotros" data-en="Us" data-fr="Nous">Nosotros</a>
-    <a href="#nav-rsvp" class="nav-link" data-es="RSVP" data-en="RSVP" data-fr="RSVP">RSVP</a>
-    <a href="#nav-honeymoon" class="nav-link" data-es="Luna de Miel" data-en="Honeymoon" data-fr="Voyage">Luna de Miel</a>
-    <a href="#nav-prewedding" class="nav-link" data-es="Pre-Wedding" data-en="Pre-Wedding" data-fr="Avant-mariage">Pre-Wedding</a>
-    <a href="#nav-map" class="nav-link" data-es="Cómo llegar" data-en="Getting there" data-fr="Comment y aller">Cómo llegar</a>
+    <a href="#nav-us" class="nav-link" data-es="Nosotros" data-en="Us">Nosotros</a>
+    <a href="#nav-rsvp" class="nav-link" data-es="RSVP" data-en="RSVP">RSVP</a>
+    <a href="#nav-honeymoon" class="nav-link" data-es="Luna de Miel" data-en="Honeymoon">Luna de Miel</a>
+    <a href="#nav-prewedding" class="nav-link" data-es="Pre-Wedding" data-en="Pre-Wedding">Pre-Wedding</a>
+    <a href="#nav-map" class="nav-link" data-es="Cómo llegar" data-en="Getting there">Cómo llegar</a>
   </nav>
   <div class="lang-toggle">
     <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
   </div>
 </div>
 
@@ -644,7 +655,7 @@
   <div class="corner corner-br"></div>
 
   <div class="hero-inner">
-    <p class="eyebrow" data-es="Save the Date" data-en="Save the Date" data-fr="Save the Date">Save the Date</p>
+    <p class="eyebrow" data-es="Save the Date" data-en="Save the Date">Save the Date</p>
 
     <h1 class="names">
       Caro<br>
@@ -654,34 +665,34 @@
 
     <div class="divider"></div>
 
-    <p class="date-line" data-es="5 de Octubre, 2026" data-en="October 5th, 2026" data-fr="5 octobre 2026">5 de Octubre, 2026</p>
+    <p class="date-line" data-es="5 de Octubre, 2026" data-en="October 5th, 2026">5 de Octubre, 2026</p>
 
     <div class="location-block">
       <div class="location-item">
-        <span class="location-line" data-es="Misa de Esponsales · 11:00" data-en="Wedding Mass · 11:00 AM" data-fr="Messe de mariage · 11h00">Misa de Esponsales · 11:00</span>
-        <span class="location-sub" data-es="Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma" data-en="San Tommaso da Villanova Church, Castel Gandolfo, Rome" data-fr="Église San Tommaso da Villanova, Castel Gandolfo, Rome">Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma</span>
+        <span class="location-line" data-es="Misa de Esponsales · 11:00" data-en="Wedding Mass · 11:00 AM">Misa de Esponsales · 11:00</span>
+        <span class="location-sub" data-es="Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma" data-en="San Tommaso da Villanova Church, Castel Gandolfo, Rome">Iglesia San Tommaso da Villanova, Castel Gandolfo, Roma</span>
       </div>
       <div class="location-divider"></div>
       <div class="location-item">
-        <span class="location-line" data-es="Recepción · 13:30" data-en="Reception · 1:30 PM" data-fr="Réception · 13h30">Recepción · 13:30</span>
-        <span class="location-sub" data-es="Villa Pocci, Castel Gandolfo, Roma" data-en="Villa Pocci, Castel Gandolfo, Rome" data-fr="Villa Pocci, Castel Gandolfo, Rome">Villa Pocci, Castel Gandolfo, Roma</span>
+        <span class="location-line" data-es="Recepción · 13:30" data-en="Reception · 1:30 PM">Recepción · 13:30</span>
+        <span class="location-sub" data-es="Villa Pocci, Castel Gandolfo, Roma" data-en="Villa Pocci, Castel Gandolfo, Rome">Villa Pocci, Castel Gandolfo, Roma</span>
       </div>
     </div>
   </div>
 </section>
 
 <section class="countdown-section">
-  <p class="section-label" data-es="Faltan" data-en="Countdown" data-fr="Dans">Faltan</p>
+  <p class="section-label" data-es="Faltan" data-en="Countdown">Faltan</p>
   <div class="countdown">
     <div class="count-item">
       <span class="count-num" id="cd-days">—</span>
-      <span class="count-label" data-es="Días" data-en="Days" data-fr="Jours">Días</span>
+      <span class="count-label" data-es="Días" data-en="Days">Días</span>
     </div>
   </div>
 </section>
 
 <section id="nav-us" class="carousel-section fade-in">
-  <span class="section-label" data-es="Nosotros" data-en="Us" data-fr="Nous">Nosotros</span>
+  <span class="section-label" data-es="Nosotros" data-en="Us">Nosotros</span>
   <div class="carousel-track-wrap">
     <div class="carousel-track" id="carousel-track">
       <div class="carousel-slide"><img src="img/foto2.jpeg" alt="" loading="lazy"></div>
@@ -695,6 +706,7 @@
       <div class="carousel-slide"><img src="img/foto14.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto15.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto16.jpeg" alt="" loading="lazy"></div>
+      <div class="carousel-slide"><img src="img/foto17.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto18.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto19.jpeg" alt="" loading="lazy"></div>
       <div class="carousel-slide"><img src="img/foto20.jpeg" alt="" loading="lazy"></div>
@@ -716,79 +728,75 @@
 </section>
 
 <section id="nav-rsvp" class="rsvp-section fade-in">
-  <p class="section-label" data-es="Confirmá tu asistencia" data-en="RSVP" data-fr="Confirmer votre présence">Confirmá tu asistencia</p>
-  <h2 class="section-title" data-es="¿Nos acompañás?" data-en="Will you join us?" data-fr="Vous nous rejoignez ? 🥖">¿Nos acompañás?</h2>
-  <p class="section-desc" data-es="Completá el formulario para confirmar tu lugar.<br>Te esperamos en Castel Gandolfo." data-en="Fill out the form to confirm your attendance.<br>We can't wait to celebrate with you." data-fr="Remplissez le formulaire pour confirmer votre place.<br>On vous attend à Castel Gandolfo.">
+  <p class="section-label" data-es="Confirmá tu asistencia" data-en="RSVP">Confirmá tu asistencia</p>
+  <h2 class="section-title" data-es="¿Nos acompañás?" data-en="Will you join us?">¿Nos acompañás?</h2>
+  <p class="section-desc" data-es="Completá el formulario para confirmar tu lugar.<br>Te esperamos en Castel Gandolfo." data-en="Fill out the form to confirm your attendance.<br>We can't wait to celebrate with you.">
     Completá el formulario para confirmar tu lugar.<br>
     Te esperamos en Castel Gandolfo.
   </p>
-  <a id="rsvp-btn" href="#tally-open=44jDJA" class="btn" data-es="Confirmar asistencia" data-en="Confirm attendance" data-fr="Confirmer ma présence">Confirmar asistencia</a>
-</section>
+  <a id="rsvp-btn" href="#tally-open=44jDJA" class="btn" data-es="Confirmar asistencia" data-en="Confirm attendance">Confirmar asistencia</a>
 
-<!-- INFO CARDS -->
-<section class="info-section fade-in">
   <div class="info-grid">
     <div class="info-card">
       <span class="info-card-icon">👔</span>
-      <p class="info-card-label" data-es="Dress Code" data-en="Dress Code" data-fr="Dress Code">Dress Code</p>
-      <p class="info-card-title" data-es="Elegante de día" data-en="Elegant daytime" data-fr="Élégant de jour">Elegante de día</p>
+      <p class="info-card-label" data-es="Dress Code" data-en="Dress Code">Dress Code</p>
+      <p class="info-card-title" data-es="Elegante de día" data-en="Elegant daytime">Elegante de día</p>
     </div>
     <div class="info-card">
       <span class="info-card-icon">📅</span>
-      <p class="info-card-label" data-es="Fecha límite" data-en="RSVP Deadline" data-fr="Date limite">Fecha límite</p>
-      <p class="info-card-title" data-es="31 de Agosto" data-en="August 31st" data-fr="31 août">31 de Agosto</p>
-      <p class="info-card-desc" data-es="Para confirmar tu asistencia" data-en="To confirm your attendance" data-fr="Pour confirmer votre présence">Para confirmar tu asistencia</p>
+      <p class="info-card-label" data-es="Fecha límite" data-en="RSVP Deadline">Fecha límite</p>
+      <p class="info-card-title" data-es="31 de Agosto" data-en="August 31st">31 de Agosto</p>
+      <p class="info-card-desc" data-es="Para confirmar tu asistencia" data-en="To confirm your attendance">Para confirmar tu asistencia</p>
     </div>
   </div>
 </section>
 
 <!-- HONEYMOON FUND -->
 <section id="nav-honeymoon" class="honeymoon-section fade-in">
-  <p class="section-label" data-es="Luna de Miel" data-en="Honeymoon Fund" data-fr="Voyage de noces">Luna de Miel</p>
-  <h2 class="honeymoon-title" data-es="Nos vamos a Japón ✈️" data-en="We're off to Japan ✈️" data-fr="On part au Japon ✈️">Nos vamos a Japón ✈️</h2>
-  <p class="honeymoon-text" data-es="El mejor regalo es que estés en nuestro casamiento. Si además querés sumarte a esta aventura, cualquier aporte para el viaje lo vamos a atesorar tanto como el brindis." data-en="The best gift is having you at our wedding. If you'd also like to help us kick off this adventure, any contribution towards the trip means the world to us." data-fr="Le plus beau cadeau, c'est votre présence à notre mariage. Si vous souhaitez aussi participer à cette aventure, toute contribution pour le voyage nous touchera énormément.">
-    El mejor regalo es que estés en nuestro casamiento. Si además querés sumarte a esta aventura, cualquier aporte para el viaje lo vamos a atesorar tanto como el brindis.
+  <p class="section-label" data-es="Luna de Miel" data-en="Honeymoon Fund">Luna de Miel</p>
+  <h2 class="honeymoon-title" data-es="Nos vamos a Japón ✈️" data-en="We're off to Japan ✈️">Nos vamos a Japón ✈️</h2>
+  <p class="honeymoon-text" data-es="El mejor regalo es poder compartir este día con vos. Si además querés hacernos un regalo, podés contribuir a nuestra luna de miel." data-en="The best gift is sharing this day with you. If you'd also like to give us something, you can contribute to our honeymoon.">
+    El mejor regalo es poder compartir este día con vos. Si además querés hacernos un regalo, podés contribuir a nuestra luna de miel.
   </p>
-  <a href="honeymoon.html" class="btn" style="border-color: var(--accent); color: var(--accent);" data-es="Contribuir al viaje" data-en="Contribute to the trip" data-fr="Contribuer au voyage">Contribuir al viaje</a>
-</section>
-  <p class="honeymoon-text" style="margin-top:1.5rem; font-size:0.75rem; opacity:0.7;" data-es="¿Preferís USD? Escribinos y te pasamos los datos." data-en="Prefer USD? Message us and we'll send the details." data-fr="Vous préférez l'USD ? Écrivez-nous, on vous envoie les coordonnées.">¿Preferís USD? Escribinos y te pasamos los datos.</p>
+  <a href="honeymoon.html" class="btn" style="border-color: var(--accent); color: var(--accent);" data-es="Contribuir al viaje" data-en="Contribute to the trip">Contribuir al viaje</a>
 </section>
 
 <!-- PREWEDDING -->
 <section id="nav-prewedding" class="prewedding-section fade-in">
-  <p class="section-label" data-es="Antes de la boda" data-en="Before the wedding" data-fr="Avant le mariage">Antes de la boda</p>
-  <h2 class="section-title" data-es="Nos tomamos algo antes 🍸" data-en="Let's have a drink first 🍸" data-fr="On prend un verre avant 🍸">Nos tomamos algo antes 🍸</h2>
-  <p class="prewedding-desc" data-es="El sábado a la noche antes de la boda nos juntamos para arrancar el finde con onda. Confirmá si venís." data-en="The Saturday evening before the wedding we're getting together to kick off the weekend. Let us know if you're in." data-fr="Le samedi soir avant le mariage, on se retrouve pour lancer le week-end. Confirmez votre présence.">
-    El sábado a la noche antes de la boda nos juntamos para arrancar el finde con onda. Confirmá si venís.
+  <p class="section-label" data-es="Antes del casamiento" data-en="Before the wedding">Antes del casamiento</p>
+  <h2 class="section-title" data-es="Nos tomamos algo antes 🍸" data-en="Let's have a drink first 🍸">Nos tomamos algo antes 🍸</h2>
+  <p class="prewedding-desc" data-es="El sábado a la noche antes del casamiento nos juntamos para arrancar el finde con onda. Confirmá si venís." data-en="The Saturday evening before the wedding we're getting together to kick off the weekend. Let us know if you're in.">
+    El sábado a la noche antes del casamiento nos juntamos para arrancar el finde con onda. Confirmá si venís.
   </p>
   <div class="prewedding-details">
     <div class="prewedding-detail">
-      <span class="map-location-label" data-es="Dónde" data-en="Where" data-fr="Où">Dónde</span>
+      <span class="map-location-label" data-es="Dónde" data-en="Where">Dónde</span>
       <span class="map-location-name">Santa Cocktail Club</span>
       <span class="map-location-addr">Corso Vittorio Emanuele II 110, Roma</span>
     </div>
     <div class="prewedding-detail">
-      <span class="map-location-label" data-es="Cuándo" data-en="When" data-fr="Quand">Cuándo</span>
-      <span class="map-location-name" data-es="Sábado 3 de Octubre" data-en="Saturday, Oct 3rd" data-fr="Samedi 3 octobre">Sábado 3 de Octubre</span>
-      <span class="map-location-addr" data-es="Horario a confirmar" data-en="Time TBC" data-fr="Horaire à confirmer">Horario a confirmar</span>
+      <span class="map-location-label" data-es="Cuándo" data-en="When">Cuándo</span>
+      <span class="map-location-name" data-es="Sábado 3 de Octubre" data-en="Saturday, Oct 3rd">Sábado 3 de Octubre</span>
+      <span class="map-location-addr" data-es="Horario a confirmar" data-en="Time TBC">Horario a confirmar</span>
     </div>
   </div>
   <div class="map-wrap" style="grid-template-columns: 1fr; max-width: 500px;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.699!2d12.4756564!3d41.8961247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61ec777c3c25%3A0x953e82f810d5fb70!2sSanta%20Cocktail%20Club%20-%20Roma!5e0!3m2!1sen!2sit!4v1" width="100%" height="380" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5939.696115827117!2d12.473081476623921!3d41.896124671239804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61ec77173c25%3A0x953e82f8105bfb70!2sSanta%20Cocktail%20Club%20-%20Roma!5e0!3m2!1sen!2sus!4v1786401624604!5m2!1sen!2sus" width="100%" height="380" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
   </div>
+  <a id="transport-btn" href="#tally-open=ja4bjx" class="btn" style="margin-top: 2rem;" data-es="Confirmar transporte y welcome drink" data-en="Confirm transport and welcome drink">Confirmar transporte y welcome drink</a>
 </section>
 
 <!-- MAP -->
 <section id="nav-map" class="map-section fade-in">
-  <p class="section-label" data-es="Cómo llegar" data-en="How to get there" data-fr="Comment y aller">Cómo llegar</p>
+  <p class="section-label" data-es="Cómo llegar" data-en="How to get there">Cómo llegar</p>
   <div class="map-locations">
     <div class="map-location-item">
-      <span class="map-location-label" data-es="Ceremonia" data-en="Ceremony" data-fr="Cérémonie">Ceremonia</span>
-      <span class="map-location-name" data-es="Iglesia San Tommaso da Villanova" data-en="San Tommaso da Villanova Church" data-fr="Église San Tommaso da Villanova">Iglesia San Tommaso da Villanova</span>
+      <span class="map-location-label" data-es="Ceremonia" data-en="Ceremony">Ceremonia</span>
+      <span class="map-location-name" data-es="Iglesia San Tommaso da Villanova" data-en="San Tommaso da Villanova Church">Iglesia San Tommaso da Villanova</span>
       <span class="map-location-addr">Piazza della Libertà 14, Castel Gandolfo</span>
     </div>
     <div class="map-location-item">
-      <span class="map-location-label" data-es="Recepción" data-en="Reception" data-fr="Réception">Recepción</span>
+      <span class="map-location-label" data-es="Recepción" data-en="Reception">Recepción</span>
       <span class="map-location-name">Villa Pocci</span>
       <span class="map-location-addr">Via dei Laghi 62, Marino</span>
     </div>
@@ -808,7 +816,7 @@
 
   // detect ?lang= param on load
   const urlLang = new URLSearchParams(window.location.search).get('lang');
-  if (urlLang && ['es','en','fr'].includes(urlLang)) {
+  if (urlLang && ['es','en'].includes(urlLang)) {
     currentLang = urlLang;
     document.querySelectorAll('[data-es]').forEach(el => {
       const val = el.getAttribute('data-' + urlLang);
@@ -816,22 +824,24 @@
     });
     document.getElementById('btn-es').classList.toggle('active', urlLang === 'es');
     document.getElementById('btn-en').classList.toggle('active', urlLang === 'en');
-    document.getElementById('btn-fr').classList.toggle('active', urlLang === 'fr');
     const formId = urlLang === 'es' ? '44jDJA' : '0QPXlZ';
     document.getElementById('rsvp-btn').href = '#tally-open=' + formId;
+    const transportFormId = urlLang === 'es' ? 'ja4bjx' : 'obNDJV';
+    document.getElementById('transport-btn').href = '#tally-open=' + transportFormId;
   }
 
   function setLang(lang) {
     currentLang = lang;
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
     document.querySelectorAll('[data-es]').forEach(el => {
       const val = el.getAttribute('data-' + lang);
       if (val) el.innerHTML = val;
     });
     const formId = lang === 'es' ? '44jDJA' : '0QPXlZ';
     document.getElementById('rsvp-btn').href = '#tally-open=' + formId;
+    const transportFormId = lang === 'es' ? 'ja4bjx' : 'obNDJV';
+    document.getElementById('transport-btn').href = '#tally-open=' + transportFormId;
   }
 
   const weddingDate = new Date('2026-10-05T11:00:00');

@@ -115,29 +115,26 @@
 </head>
 <body>
 
-<a href="index.html" class="back-link" data-es="← Volver" data-en="← Back" data-fr="← Retour">← Volver</a>
+<a href="index.html" class="back-link" data-es="← Volver" data-en="← Back">← Volver</a>
 
 <div class="lang-toggle">
   <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
   <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
 </div>
 
 <div class="wrap">
-  <p class="eyebrow" data-es="Luna de Miel" data-en="Honeymoon Fund" data-fr="Voyage de noces">Luna de Miel</p>
-  <h1 data-es="Nos vamos a Japón ✈️" data-en="We're off to Japan ✈️" data-fr="On part au Japon ✈️">Nos vamos a Japón ✈️</h1>
-  <p class="text" data-es="El mejor regalo es que estés en nuestro casamiento. Si además querés sumarte a esta aventura, cualquier aporte para el viaje lo vamos a atesorar tanto como el brindis." data-en="The best gift is having you at our wedding. If you'd also like to help us kick off this adventure, any contribution towards the trip means the world to us." data-fr="Le plus beau cadeau, c'est votre présence à notre mariage. Si vous souhaitez aussi participer à cette aventure, toute contribution pour le voyage nous touchera énormément.">
-    El mejor regalo es que estés en nuestro casamiento. Si además querés sumarte a esta aventura, cualquier aporte para el viaje lo vamos a atesorar tanto como el brindis.
+  <p class="eyebrow" data-es="Luna de Miel" data-en="Honeymoon Fund">Luna de Miel</p>
+  <h1 data-es="Nos vamos a Japón ✈️" data-en="We're off to Japan ✈️">Nos vamos a Japón ✈️</h1>
+  <p class="text" data-es="El mejor regalo es poder compartir este día con vos. Si además querés hacernos un regalo, podés contribuir a nuestra luna de miel." data-en="The best gift is sharing this day with you. If you'd also like to give us something, you can contribute to our honeymoon.">
+    El mejor regalo es poder compartir este día con vos. Si además querés hacernos un regalo, podés contribuir a nuestra luna de miel.
   </p>
-  <a href="https://revolut.me/caromanfroni" target="_blank" class="btn" data-es="Contribuir en Revolut" data-en="Contribute via Revolut" data-fr="Contribuer via Revolut">Contribuir en Revolut</a>
-  <p class="note" data-es="¿No tenés Revolut? Escribinos y vemos otra forma." data-en="Don't have Revolut? Message us and we'll find another way." data-fr="Pas de Revolut ? Écrivez-nous, on trouvera une solution.">¿No tenés Revolut? Escribinos y vemos otra forma.</p>
+  <a href="https://revolut.me/caromanfroni" target="_blank" class="btn" data-es="Contribuir en Revolut" data-en="Contribute via Revolut">Contribuir en Revolut</a>
 </div>
 
 <script>
   function setLang(lang) {
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
     document.querySelectorAll('[data-es]').forEach(el => {
       const val = el.getAttribute('data-' + lang);
       if (val) el.innerHTML = val;
