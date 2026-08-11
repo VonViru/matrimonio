@@ -544,12 +544,12 @@
   /* parallax layer: taller than the section so it can drift on scroll */
   .honeymoon-bg {
     position: absolute;
-    top: -20%;
+    top: -30%;
     left: 0;
     width: 100%;
-    height: 140%;
+    height: 160%;
     background:
-      linear-gradient(rgba(30,26,22,0.82), rgba(30,26,22,0.88)),
+      linear-gradient(rgba(30,26,22,0.55), rgba(30,26,22,0.72)),
       url('img/koyo_autumn.jpg') center/cover no-repeat;
     will-change: transform;
     z-index: 0;
@@ -1073,7 +1073,7 @@
       if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
         // progress: -1 (section below viewport) → 1 (section above viewport)
         const progress = (window.innerHeight / 2 - (rect.top + rect.height / 2)) / (window.innerHeight / 2 + rect.height / 2);
-        bg.style.transform = 'translate3d(0, ' + (progress * 12).toFixed(2) + '%, 0)';
+        bg.style.transform = 'translate3d(0, ' + (progress * 22).toFixed(2) + '%, 0)';
       }
       ticking = false;
     }
