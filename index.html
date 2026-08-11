@@ -358,38 +358,73 @@
 
   .carousel-track-wrap { position: relative; width: 100%; overflow: hidden; }
 
+  /* soft edge fade so slides dissolve instead of getting cut */
+  .carousel-track-wrap::before,
+  .carousel-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 12vw;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .carousel-track-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--warm-white), transparent);
+  }
+  .carousel-track-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--warm-white), transparent);
+  }
+
   .carousel-track {
     display: flex;
     gap: 1.5rem;
-    padding: 0 calc(50vw - 140px);
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 0 calc(50vw - 150px);
+    transition: transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
     will-change: transform;
   }
 
   .carousel-slide {
-    flex: 0 0 280px;
-    height: 420px;
+    flex: 0 0 300px;
+    height: 440px;
     overflow: hidden;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    opacity: 0.5;
-    transform: scale(0.92);
+    transition:
+      transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+      opacity 0.6s ease,
+      filter 0.6s ease,
+      box-shadow 0.6s ease;
+    opacity: 0.38;
+    transform: scale(0.86);
+    filter: saturate(0.55) brightness(0.96);
+    box-shadow: 0 4px 20px rgba(30,26,22,0.06);
   }
 
-  .carousel-slide.active { opacity: 1; transform: scale(1); }
+  .carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: saturate(1) brightness(1);
+    box-shadow: 0 18px 50px rgba(30,26,22,0.18);
+  }
 
   .carousel-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transform: scale(1.06);
+    transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
+
+  .carousel-slide.active img { transform: scale(1); }
 
   .carousel-controls {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
   }
 
   .carousel-btn {
@@ -403,10 +438,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .carousel-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .carousel-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: scale(1.08);
+  }
+  .carousel-btn:active { transform: scale(0.96); }
 
   .carousel-dots { display: flex; gap: 0.5rem; align-items: center; }
 
@@ -416,10 +456,11 @@
     background: var(--light-stone);
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
-  .carousel-dot.active { background: var(--accent); width: 20px; border-radius: 3px; }
+  .carousel-dot:hover { background: var(--accent); }
+  .carousel-dot.active { background: var(--accent); width: 22px; border-radius: 3px; }
 
   /* ── INFO CARDS (dress code, deadline, honeymoon) ── */
   .info-grid {
@@ -472,12 +513,28 @@
   /* ── HONEYMOON ── */
   .honeymoon-section {
     padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    color: var(--cream);
+    text-align: center;
+    background: var(--dark);
+  }
+
+  /* parallax layer: taller than the section so it can drift on scroll */
+  .honeymoon-bg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
     background:
       linear-gradient(rgba(30,26,22,0.82), rgba(30,26,22,0.88)),
       url('img/koyo_autumn.jpg') center/cover no-repeat;
-    color: var(--cream);
-    text-align: center;
+    will-change: transform;
+    z-index: 0;
   }
+
+  .honeymoon-section > *:not(.honeymoon-bg) { position: relative; z-index: 1; }
 
   .honeymoon-section .section-label { color: var(--accent); margin-bottom: 1.5rem; }
 
@@ -628,10 +685,25 @@
 
   .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(28px);
+    filter: blur(4px);
+    transition:
+      opacity 1s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 1s cubic-bezier(0.22, 0.61, 0.36, 1),
+      filter 1s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
-  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+  /* accessibility: honour system motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .fade-in { opacity: 1; transform: none; filter: none; }
+  }
 </style>
 </head>
 <body>
@@ -806,6 +878,7 @@
 
 <!-- HONEYMOON FUND -->
 <section id="nav-honeymoon" class="honeymoon-section fade-in">
+  <div class="honeymoon-bg" id="honeymoon-bg"></div>
   <p class="section-label" data-es="Luna de Miel" data-en="Honeymoon Fund">Luna de Miel</p>
   <h2 class="honeymoon-title" data-es="Nos vamos a Japón ⛩️🌸" data-en="We're off to Japan ⛩️🌸">Nos vamos a Japón ⛩️🌸</h2>
   <p class="honeymoon-text" data-es="Con que estés, estamos felices. Si además querés aportar a la luna de miel, podés ayudar a que Caro pruebe todos los matchas de Japón y Diego vuelva con una espada samurái que claramente no necesita." data-en="Just having you there makes us happy. If you'd also like to chip in for the honeymoon, you can help Caro try every matcha in Japan and Diego come back with a samurai sword he clearly doesn't need.">
@@ -871,7 +944,7 @@
   const track    = document.getElementById('carousel-track');
   const slides   = Array.from(track.querySelectorAll('.carousel-slide'));
   const dotsWrap = document.getElementById('carousel-dots');
-  const SLIDE_W  = 280 + 24;
+  const SLIDE_W  = 300 + 24;
   let current    = 0;
 
   slides.forEach((_, i) => {
@@ -901,12 +974,52 @@
     if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
   });
 
-  setInterval(() => goTo(current + 1), 4000);
+  // autoplay: pauses on hover, and resets after any manual interaction
+  let autoplay = setInterval(() => goTo(current + 1), 4500);
+
+  function restartAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => goTo(current + 1), 4500);
+  }
+
+  const carouselSection = document.getElementById('nav-us');
+  carouselSection.addEventListener('mouseenter', () => clearInterval(autoplay));
+  carouselSection.addEventListener('mouseleave', restartAutoplay);
+  carouselSection.addEventListener('click', restartAutoplay);
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── PARALLAX ──
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const bg = document.getElementById('honeymoon-bg');
+  const bgSection = document.getElementById('nav-honeymoon');
+
+  if (bg && bgSection && !prefersReducedMotion) {
+    let ticking = false;
+
+    function updateParallax() {
+      const rect = bgSection.getBoundingClientRect();
+      // only compute while the section is anywhere near the viewport
+      if (rect.bottom > -200 && rect.top < window.innerHeight + 200) {
+        // progress: -1 (section below viewport) → 1 (section above viewport)
+        const progress = (window.innerHeight / 2 - (rect.top + rect.height / 2)) / (window.innerHeight / 2 + rect.height / 2);
+        bg.style.transform = 'translate3d(0, ' + (progress * 12).toFixed(2) + '%, 0)';
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    updateParallax();
+  }
 </script>
 </body>
 </html>
