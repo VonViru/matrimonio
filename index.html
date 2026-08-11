@@ -206,6 +206,27 @@
   }
 
   .location-block { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .cal-btn {
+    margin-top: 2.2rem;
+    padding: 0.7rem 1.6rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    background: transparent;
+    border: 1px solid var(--light-stone);
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .cal-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .cal-btn:active { transform: scale(0.97); }
   .location-item  { display: flex; flex-direction: column; gap: 0.15rem; }
 
   .location-line {
@@ -752,6 +773,8 @@
         <span class="location-sub" data-es="Villa Pocci, Castel Gandolfo, Roma" data-en="Villa Pocci, Castel Gandolfo, Rome">Villa Pocci, Castel Gandolfo, Roma</span>
       </div>
     </div>
+
+    <button id="cal-btn" class="cal-btn" onclick="downloadICS()" data-es="+ Agregar al calendario" data-en="+ Add to calendar">+ Agregar al calendario</button>
   </div>
 </section>
 
@@ -991,6 +1014,50 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── ADD TO CALENDAR (.ics) ──
+  function downloadICS() {
+    const isES = currentLang === 'es';
+    const title = isES ? 'Casamiento de Caro y Diego' : "Caro & Diego's Wedding";
+    const desc  = isES
+      ? 'Misa de Esponsales 11:00 - Iglesia San Tommaso da Villanova\\nRecepcion 13:30 - Villa Pocci\\n\\nInfo: https://vonviru.github.io/matrimonio/'
+      : 'Wedding Mass 11:00 - San Tommaso da Villanova Church\\nReception 13:30 - Villa Pocci\\n\\nInfo: https://vonviru.github.io/matrimonio/';
+    const loc = 'Iglesia San Tommaso da Villanova, Piazza della Liberta 14, Castel Gandolfo, Roma, Italia';
+
+    // Italy is UTC+2 on 5 Oct 2026 (CEST), so 11:00 local = 09:00 UTC
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//caroydiego//wedding//ES',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      'UID:caroydiego-20261005@wedding',
+      'DTSTAMP:20260101T000000Z',
+      'DTSTART:20261005T090000Z',
+      'DTEND:20261005T200000Z',
+      'SUMMARY:' + title,
+      'DESCRIPTION:' + desc,
+      'LOCATION:' + loc,
+      'BEGIN:VALARM',
+      'TRIGGER:-P7D',
+      'ACTION:DISPLAY',
+      'DESCRIPTION:' + title,
+      'END:VALARM',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url;
+    a.download = 'caro-y-diego-2026.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 
   // ── PARALLAX ──
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
